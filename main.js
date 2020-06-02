@@ -15,12 +15,16 @@ const rowElements = document.querySelectorAll(".row")
 // Call this function from WITHIN your row elements loop. Then you will, in turn,
 // need to loop over the resulting cell elements. But where should this whole
 // NESTED LOOP go? Think through the user's experience: when should WHAT happen? 
-function getCellElements (currentRowElement) {
+function getCellElements(currentRowElement) {
     return currentRowElement.querySelectorAll(".cell")
 }
 
 
 // YOUR CODE GOES HERE
+replaceAllButton.addEventListener('click', function () {
+    findInput.document.querySelector('[name="find-input"]'.value)
+})
+console.log(findInput.value);
 
 
 // One last thing: dedicate very careful attention to using variables and
@@ -34,5 +38,3 @@ function getCellElements (currentRowElement) {
 // The time-cost of structuring and naming things well is FAR less than the
 // time-cost of ignoring the quality and readability of your code.
 //
-// You can, of course, remove any comments in this starter project once
-// you have read them, if you prefer.
