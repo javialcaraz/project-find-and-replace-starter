@@ -10,7 +10,7 @@ const replaceAllButton = document.querySelector(".replace-all-button")
 // this array.
 const rowElements = document.querySelectorAll(".row")
 
-// When you call the function belwo, it will get and return an INNER ARRAY
+// When you call the function below, it will get and return an INNER ARRAY
 // containing the cell elements for a given row.
 // Call this function from WITHIN your row elements loop. Then you will, in turn,
 // need to loop over the resulting cell elements. But where should this whole
@@ -21,20 +21,23 @@ function getCellElements(currentRowElement) {
 
 
 // YOUR CODE GOES HERE
-replaceAllButton.addEventListener('click', function () {
-    findInput.document.querySelector('[name="find-input"]'.value)
+replaceAllButton.addEventListener("click", function () {
+    let inputValue = findInput.value;
+    let replaceValue = document.querySelector(".replace-input").value;
+
+    for (let x = 0; x < rowElements.length; x++) {
+        const currentRowElement = rowElements[x]
+        const cellElements = getCellElements(currentRowElement)
+        for (let y = 0; y < cellElements.length; y++) {
+            const currentCellElement = cellElements[y]
+
+            let cellsStrings = currentCellElement.innerHTML
+            while (cellsStrings.includes(inputValue)) {
+                cellsStrings = cellsStrings.replace(inputValue, replaceValue)
+            }
+
+            currentCellElement.innerHTML = cellsStrings
+        }
+    }
+
 })
-console.log(findInput.value);
-
-
-// One last thing: dedicate very careful attention to using variables and
-// naming them accurately.
-// And when you change the value you are assigning to a variable, don't
-// forget to consider changing the name to reflect the change you made! It
-// is very easy to get confused when you are working inside NESTED LOOPS.
-// The best of us do. And unnecessary confusion during the process of 
-// developing your code means wasted time.
-//
-// The time-cost of structuring and naming things well is FAR less than the
-// time-cost of ignoring the quality and readability of your code.
-//
